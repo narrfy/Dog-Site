@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <label for="indexInput">Enter an index (0 to {{ dogList|length - 1 }}):</label>
+        <input type="number" id="indexInput" min="0" max="{{ dogList|length - 1 }}" required>
+        <button onclick="showDog()">Show Dog</button> <br>
+
+        <img id="dogImage" src="" alt="Dog Image">
+        <p id="dogDescription"></p> <br>
+    </div>
+
+    <script>
+        // Ive tried to fix this error for a few hours now. Code is working fine on my end but I'm not sure for other systems
+        // If its not working the video shows that it should but I just cant figure out what the compliers problem with this is
+        let dogList = {{ dogList|tojson|safe }}; // Error on this line but it still works?
+        let descriptions = ["Boxer: Kinda stupid but good", 
+                            "Akita: Very protective", 
+                            "Beagle: They will eat your socks",
+                            "Husky: Never expect peace again", 
+                            "Labrador: Yeah", 
+                            "Shepherd: Seem scarier then they really are"];
+                            
+        function showDog() {
+            let indexInput = document.getElementById("indexInput").value;
+            let dogImage = document.getElementById("dogImage");
+            let dogDescription = document.getElementById("dogDescription");
+
+            if (indexInput >= 0 && indexInput < dogList.length) {
+                dogImage.src = dogList[indexInput];
+                dogDescription.textContent = descriptions[indexInput];
+            } else {
+                alert("Invalid index. Please enter a valid index.");
+            }
+        }
+    </script>
+{% endblock %}
+
+

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <form method="POST" action="/update/{{ entry.id }}">
+        <label for="owner">Name:</label>
+        <input type="text" name="name" value="{{ entry.name }}" required><br>
+
+        <label for="type">Type:</label>
+        <input type="text" name="type" value="{{ entry.type }}"><br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" value="{{ entry.age }}"><br>
+
+
+        
+        <input type="submit" value="Update">
+    </form>
+</body>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <h1>Dog Entries</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Age</th>
+            <th>Owner</th>
+            <th>Actions</th>
+        </tr>
+        {% for entry in entries %}
+            <tr>
+                <td>{{ entry.id }}</td>
+                <td>{{ entry.name }}</td>
+                <td>{{ entry.type }}</td>
+                <td>{{ entry.age }}</td>
+                <td>{{ entry.owner }}</td>
+                <td>
+                    <a href="/update/{{ entry.id }}">Update</a>
+                    <a href="/deleteDog/{{ entry.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/createDog">Create a New Entry</a>
+</body>
+{% endblock %}

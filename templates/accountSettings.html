@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User Settings</h1>
+
+    <form method="POST" action="{{ url_for('updateAcc', id=current_user.id) }}">
+        <label for="current_password">Current Password:</label>
+        <input type="password" name="current_password" required><br>
+        <label for="new_password">New Password:</label>
+        <input type="password" name="new_password" required><br>
+        <input type="submit" name="password_submit" value="Update Password">
+    </form>
+
+    <form method="POST" action="{{ url_for('updateAcc', id=current_user.id) }}">
+        <label for="current_username">Current Username:</label>
+        <input type="text" name="current_username" required><br>
+        <label for="new_username">New Username:</label>
+        <input type="text" name="new_username" required><br>
+        <input type="submit" name="username_submit" value="Update Username">
+    </form>
+
+    <a href="/deleteAcc/{{ current_user.id }}">Delete</a>
+{% endblock %}

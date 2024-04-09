@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if current_user.is_authenticated %}
+        <h1> Good Job </h1>
+        <p> Now you can look at any of the dogs given (There's not many). </p> <br>
+    {% else %}
+        <h1> Hello, welcome to my website</h1>
+        <p> It's about dogs, your welcome. Make an account then sign in to continue.</p> <br>
+        <p> Another thing, this site is only to show an understanding of html, Python, and SQL. There is no real purpose to this site and wont look all that good</p> <br>
+    {% endif %}
+{% endblock %}

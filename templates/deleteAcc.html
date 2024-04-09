@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST" action="/deleteAcc/{{ entry.id }}">
+        <input type="submit" value="Delete">
+    </form>
+{% endblock %}
